@@ -1,5 +1,5 @@
 import 'date-fns';
-import React, {useCallback, useEffect} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -29,37 +29,27 @@ export const CalendarComponent = (props) => {
   const classes = useStyles();
   const label = props.label;
   const today = new Date();
-  const currentFilter = props.filter;
-  // const initialDate = props.initialDate;
+  const dateType = props.dateType;
+  const initialDate = props.initialDate;
   const untilDate = useSelector(state => state.until);
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(initialDate);
   const dispatch = useDispatch();
-  // const setFilter = useCallback(
-  //   (currentFilter, fieldValue) => dispatch(indexActions.setFilter(currentFilter, fieldValue)), [dispatch]);
-  //
-  // const clearButton = useSelector(state => state.clearButton);
-  // const disableClearButton = useCallback(
-  //   () => dispatch(indexActions.disableClearButton()), [dispatch]);
+  const setDate = useCallback(
+    (date, dateType) => dispatch(indexActions.setDate(date, dateType)), [dispatch]);
 
-  // const handleDateChange = date => {
-  //   setSelectedDate(date);
-  //   setFilter(currentFilter, moment(date).format("YYYY-MM-DD"));
-  // };
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setDate(moment(date).format("YYYY-MM-DD HH:MM"), dateType);
+  };
 
   // useEffect(
   //   () => {
-  //     setSelectedDate(initialDate);
-  //     disableClearButton();
-  //   }, [clearButton, disableClearButton, initialDate],
-  // );
-
-  // useEffect(
-  //   () => {
+  //     console.log('until= ', untilDate, 'from = ', selectedDate);
   //     if (untilDate < selectedDate) {
   //       setSelectedDate(untilDate);
-  //       setFilter(currentFilter, moment(untilDate).format("YYYY-MM-DD"));
+  //       setDate(moment(untilDate).format("YYYY-MM-DD HH:MM"), dateType);
   //     }
-  //   }, [currentFilter, selectedDate, setFilter, untilDate]
+  //   }, [dateType, selectedDate, setDate, untilDate]
   // );
 
   return (
@@ -72,7 +62,7 @@ export const CalendarComponent = (props) => {
           label={label}
           format="dd-MM-yyyy"
           value={selectedDate}
-          // onChange={handleDateChange}
+          onChange={handleDateChange}
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}

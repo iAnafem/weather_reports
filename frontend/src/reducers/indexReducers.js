@@ -1,5 +1,6 @@
 import indexActionsTypes from "../constants/indexActionsTypes";
 import reportTypes from "../constants/reportTypes";
+import moment from "moment";
 
 const types = indexActionsTypes;
 const report = reportTypes;
@@ -7,8 +8,8 @@ const report = reportTypes;
 const initialState = {
   cities : [],
   isCitiesLoading: true,
-  from: new Date('01-01-2020'),
-  until: new Date('01-20-2020'),
+  from: moment(new Date('01-01-2020')).format("YYYY-MM-DD HH:MM"),
+  until: moment(new Date('01-20-2020')).format("YYYY-MM-DD HH:MM"),
   temperature: [],
   isTempLoading: true,
   pressure: [],

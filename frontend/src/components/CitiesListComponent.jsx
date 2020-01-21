@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import * as indexActions from "../actions/indexActions";
 import { makeStyles } from '@material-ui/core/styles';
@@ -25,10 +25,13 @@ export const CitiesListComponent = () => {
     () => dispatch(indexActions.fetchCities()), [dispatch]
   );
   const currentCity = useSelector(state => state.currentCity);
-  
-  const setCurrentCity = () => dispatch(indexActions.setCurrentCity);
+
+  const [city, setCity] = useState(currentCity);
+
+  const setCurrentCity = (city) => dispatch(indexActions.setCurrentCity(city));
 
   const handleChange = event => {
+    setCity(event.target.value);
     setCurrentCity(event.target.value);
   };
 
@@ -45,7 +48,7 @@ export const CitiesListComponent = () => {
       <div>
         <FormControl className={classes.formControl}>
           <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-            Клиент
+            City
           </InputLabel>
           <Select
             MenuProps={{
@@ -61,15 +64,14 @@ export const CitiesListComponent = () => {
             }}
             labelId="demo-simple-select-placeholder-label-label"
             id="demo-simple-select-placeholder-label"
-            value={currentCity}
-
+            value={city}
             onChange={handleChange}
             displayEmpty
             className={classes.selectEmpty}
           >
             <MenuItem value="" >
               <Typography variant='body2'>
-                <em>Выберите клиента</em>
+                <em>Choose a city</em>
               </Typography>
             </MenuItem>
             {cities.map((city, id) => (

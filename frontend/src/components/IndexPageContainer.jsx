@@ -39,6 +39,7 @@ const useStyles = makeStyles(theme => ({
 const IndexPageContainer = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const state = useSelector(state => state);
   // const fetchVisitedPages = (state) => dispatch(indexActions.fetchVisitedPages(state));
   // const clearState = () => dispatch(indexActions.clearState());
   // const state = useSelector(state => state);
@@ -61,17 +62,12 @@ const IndexPageContainer = () => {
             <CitiesListComponent/>
           </Grid>
           <Grid item xs={1} className={classes.labelText}>
-            <Typography>
-              Date filter
-            </Typography>
           </Grid>
           <Grid item xs={2}>
-            {/*<CalendarComponent label={'From'} initialDate={state.from} filter={new Date()} maxDate={state.until}/>*/}
-            <CalendarComponent label={'From'}/>
+            <CalendarComponent label={'From'} initialDate={state.from} dateType={'from'}/>
           </Grid>
           <Grid item xs={2}>
-            {/*<CalendarComponent label={'Until'} initialDate={state.until} filter={filters.untilDate}/>*/}
-            <CalendarComponent label={'Until'}/>
+            <CalendarComponent label={'Until'} initialDate={state.until} dateType={'until'}/>
           </Grid>
           <Grid item xs={1} className={classes.buttons}>
             <Button

@@ -4,13 +4,14 @@ import moment from "moment";
 
 const types = indexActionsTypes;
 
+const API_URL = 'http://127.0.0.1:8000';
 
 export const fetchCities = () => {
 
   return (dispatch) => {
     let headers = {"Content-Type": "application/json"};
 
-    return fetch(`/api/cities/`,
+    return fetch(`${API_URL}/api/cities`,
       {headers,}
     )
       .then(result => {
@@ -41,7 +42,7 @@ export const fetchReportsData = (state) => {
   return (dispatch) => {
     let headers = {"Content-Type": "application/json"};
 
-    return fetch(`/api/reports/?from=${
+    return fetch(`${API_URL}/api/reports/?from=${
         moment(from).format("YYYY-MM-DD HH:mm:ss")
       }&until=${
         moment(until).format("YYYY-MM-DD HH:mm:ss")
@@ -75,6 +76,19 @@ export const setCurrentCity = (city) => {
     return dispatch({
       type: types.SET_CURRENT_CITY,
       payload: city
+    })
+  }
+};
+
+export const setDate = (date, dateType) => {
+  let actionType = types.SET_FROM_DATE;
+  if (dateType === "until") {
+    actionType = types.SET_UNTIL_DATE
+  }
+  return (dispatch) => {
+    return dispatch({
+      type: actionType,
+      payload: date
     })
   }
 };
