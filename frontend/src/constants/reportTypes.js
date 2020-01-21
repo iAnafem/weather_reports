@@ -1,0 +1,9 @@
+const TEMPERATURE = 'TEMPERATURE';
+const PRESSURE = 'PRESSURE';
+const HUMIDITY = 'HUMIDITY';
+
+export default {
+  TEMPERATURE,
+  PRESSURE,
+  HUMIDITY,
+}
