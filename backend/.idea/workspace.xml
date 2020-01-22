@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="65739b6c-ae57-4a1e-bc1e-194a609d7bd1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/endpoints.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/actions/indexActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/actions/indexActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CalendarComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CalendarComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/reducers/indexReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/reducers/indexReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/services/api_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/api_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/api_config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +58,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../README.md" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -124,7 +121,7 @@
       <updated>1579511621266</updated>
       <workItem from="1579511623467" duration="2744000" />
       <workItem from="1579517712595" duration="225000" />
-      <workItem from="1579517938863" duration="35797000" />
+      <workItem from="1579517938863" duration="39198000" />
     </task>
     <servers />
   </component>
@@ -132,10 +129,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="776" y="300" width="424" height="520" key="FileChooserDialogImpl" timestamp="1579517935716">
+    <state x="776" y="300" width="424" height="520" key="FileChooserDialogImpl" timestamp="1579691293292">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="300" width="424" height="520" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1579517935716" />
+    <state x="776" y="300" width="424" height="520" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1579691293292" />
     <state width="263" height="500" key="HiddenNamespacesPopup" timestamp="1579591014761">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

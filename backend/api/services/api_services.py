@@ -7,7 +7,8 @@ from django.utils import timezone
 def get_entries_from_specified_date_range(model, city, from_date, until_date):
     try:
         city_object = City.objects.get(name=city)
-
+        if from_date == until_date:
+            until_date = datetime.strptime(until_date, "%Y-%m-%d %H:%M:%S") + timedelta(days=1)
         entries = model.objects.filter(city=city_object.id, date_of_report__range=(from_date, until_date))
         return entries
     except City.DoesNotExist:
