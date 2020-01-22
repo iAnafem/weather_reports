@@ -1,10 +1,8 @@
 import indexActionsTypes from "../constants/indexActionsTypes";
 import moment from "moment";
-
+import API_URL from "../constants/apiUrl";
 
 const types = indexActionsTypes;
-
-const API_URL = 'http://127.0.0.1:8000';
 
 export const fetchCities = () => {
 
@@ -33,20 +31,16 @@ export const fetchCities = () => {
 };
 
 
-export const fetchReportsData = (state) => {
-  const from = state.from;
-  const until = state.until;
-  const city = state.city;
-  const filter = state.filter;
+export const fetchReportData = (reportType, fromDate, untilDate, city) => {
 
   return (dispatch) => {
     let headers = {"Content-Type": "application/json"};
 
-    return fetch(`${API_URL}/api/reports/?from=${
-        moment(from).format("YYYY-MM-DD HH:mm:ss")
+    return fetch(`${API_URL}/api/${reportType}-report?from=${
+        moment(fromDate).format("YYYY-MM-DD HH:mm:ss")
       }&until=${
-        moment(until).format("YYYY-MM-DD HH:mm:ss")
-      }&city=${city}&filter=${filter}`, {headers,}
+        moment(untilDate).format("YYYY-MM-DD HH:mm:ss")
+      }&city=${city}`, {headers,}
     )
       .then(result => {
         if (result.status < 500) {
@@ -61,9 +55,9 @@ export const fetchReportsData = (state) => {
       .then(result => {
         if (result.status === 200) {
           return dispatch({
-            type: types.FETCH_REPORTS_DATA,
+            type: types.FETCH_REPORT_DATA,
             payload: result.data,
-            filter: filter
+            filter: reportType
           });
         }
       })

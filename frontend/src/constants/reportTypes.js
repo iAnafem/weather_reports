@@ -1,6 +1,6 @@
-const TEMPERATURE = 'TEMPERATURE';
-const PRESSURE = 'PRESSURE';
-const HUMIDITY = 'HUMIDITY';
+const TEMPERATURE = 'temperature';
+const PRESSURE = 'pressure';
+const HUMIDITY = 'humidity';
 
 export default {
   TEMPERATURE,

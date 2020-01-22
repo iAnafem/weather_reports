@@ -9,7 +9,7 @@ import {
 import {makeStyles} from "@material-ui/core/styles";
 import * as indexActions from "../actions/indexActions";
 import {useDispatch, useSelector} from "react-redux";
-import moment from "moment";
+
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -39,18 +39,17 @@ export const CalendarComponent = (props) => {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    setDate(moment(date).format("YYYY-MM-DD HH:MM"), dateType);
+    setDate(date, dateType);
   };
 
-  // useEffect(
-  //   () => {
-  //     console.log('until= ', untilDate, 'from = ', selectedDate);
-  //     if (untilDate < selectedDate) {
-  //       setSelectedDate(untilDate);
-  //       setDate(moment(untilDate).format("YYYY-MM-DD HH:MM"), dateType);
-  //     }
-  //   }, [dateType, selectedDate, setDate, untilDate]
-  // );
+  useEffect(
+    () => {
+      if (untilDate < selectedDate) {
+        setSelectedDate(untilDate);
+        setDate(untilDate, dateType);
+      }
+    }, [dateType, selectedDate, setDate, untilDate]
+  );
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>

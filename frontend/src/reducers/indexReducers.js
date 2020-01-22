@@ -1,6 +1,5 @@
 import indexActionsTypes from "../constants/indexActionsTypes";
 import reportTypes from "../constants/reportTypes";
-import moment from "moment";
 
 const types = indexActionsTypes;
 const report = reportTypes;
@@ -8,8 +7,8 @@ const report = reportTypes;
 const initialState = {
   cities : [],
   isCitiesLoading: true,
-  from: moment(new Date('01-01-2020')).format("YYYY-MM-DD HH:MM"),
-  until: moment(new Date('01-20-2020')).format("YYYY-MM-DD HH:MM"),
+  from: new Date('01-01-2020'),
+  until: new Date('01-20-2020'),
   temperature: [],
   isTempLoading: true,
   pressure: [],
@@ -26,7 +25,7 @@ const indexReducer = (state=initialState, action) => {
     case types.FETCH_CITIES:
       return {...state, cities: [...action.payload]};
 
-    case types.FETCH_REPORTS_DATA:
+    case types.FETCH_REPORT_DATA:
       if (action.filter === report.TEMPERATURE) {
         return {...state, temperature: [...action.payload], isTempLoading: false};
       } else if (action.filter === report.PRESSURE) {
